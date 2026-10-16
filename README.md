@@ -16,14 +16,14 @@ Option 1, run the installer from a clone (Node 20.19+):
 
 ```bash
 git clone https://github.com/fabwaseem/agent-rules.git
-cd agent-rules && npm install
+cd agent-rules && npm install && npm run build
 # install into your project
-node --experimental-strip-types src/cli.ts --target ../my-app
+node dist/cli.js --target ../my-app
 ```
 
 Option 2, copy files by hand. Every rendered format is committed under [`examples/`](examples). Copy `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/`, `.github/`, `.claude/skills/` or `.devin/rules/` from the example closest to your stack.
 
-Option 3, `npx agentkit-rules`: **coming soon**. The package is not on npm yet. Until then, replace `npx agentkit-rules` in the commands below with `node --experimental-strip-types src/cli.ts` run from the clone.
+Option 3, `npx agentkit-rules`: **coming soon**. The package is not on npm yet. Until then, replace `npx agentkit-rules` in the commands below with `node /path/to/agent-rules/dist/cli.js`.
 
 ## What gets written
 
@@ -59,10 +59,10 @@ Windsurf workspace rules are capped at 12,000 characters. Each file in this pack
 
 ## Install
 
-From the clone, point `--target` at your project (or run it from the project with the path to `src/cli.ts`):
+From the built clone, point `--target` at your project (or run it from inside the project):
 
 ```bash
-node --experimental-strip-types /path/to/agent-rules/src/cli.ts --target .
+node /path/to/agent-rules/dist/cli.js --target .
 ```
 
 On a terminal, the CLI shows the stacks it detected and lets you accept or replace them. Detection reads `package.json` and `components.json`.
