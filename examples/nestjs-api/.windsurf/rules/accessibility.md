@@ -1,0 +1,19 @@
+---
+trigger: glob
+globs: "**/*.tsx,**/*.jsx"
+description: "Accessibility requirements for UI components and pages."
+---
+
+# Accessibility
+
+- Target WCAG 2.2 AA. Use a native element before an ARIA role: `button`, `a`, `input`, `nav`, `main`, `label`.
+- Heading levels follow the page outline. Do not skip from `h1` to `h3` because of size. Size comes from CSS.
+- Every input has a visible label associated by `htmlFor` / `id` or a wrapping `label`. A placeholder is not a label.
+- Every interactive control has an accessible name. An icon-only button has `aria-label`.
+- Keyboard users can reach, operate, and leave the control. Focus is visible. Do not remove `outline` without a replacement focus style.
+- A dialog has an accessible name, moves focus inside, traps focus, and closes on Escape, restoring focus to the opener.
+- An image that carries meaning has `alt`. A decorative image has `alt=""`.
+- Do not use color as the only way to convey state. Pair it with text or an icon that has a name.
+- A status that appears after a submit uses an alert or `aria-live` region when the user is not moved to the message.
+- Respect `prefers-reduced-motion`. Do not autoplay motion that the user cannot stop.
+- Do not attach `onClick` to a `div` or `span`. Use a button, or an anchor when navigation happens.

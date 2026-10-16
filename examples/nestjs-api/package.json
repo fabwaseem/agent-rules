@@ -1,0 +1,13 @@
+{
+  "name": "example-nestjs-api",
+  "private": true,
+  "packageManager": "npm@11.0.0",
+  "dependencies": {
+    "@nestjs/common": "11.0.0",
+    "@nestjs/core": "11.0.0",
+    "drizzle-orm": "0.44.0"
+  },
+  "devDependencies": {
+    "typescript": "5.9.0"
+  }
+}

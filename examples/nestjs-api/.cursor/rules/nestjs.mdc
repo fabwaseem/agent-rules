@@ -1,0 +1,18 @@
+---
+description: "NestJS modules, controllers, providers, validation, and tests."
+globs: "**/*.controller.ts,**/*.service.ts,**/*.module.ts,**/*.guard.ts,**/*.interceptor.ts,**/*.filter.ts,**/*.dto.ts,nest-cli.json"
+alwaysApply: false
+---
+
+# NestJS
+
+- A feature is a module: `*.module.ts`, a controller, a service, and DTOs. Register providers in that module. Do not declare a provider in `AppModule` because it is convenient.
+- Controllers translate HTTP. Services hold business rules. Database calls live in the service or a repository the service injects. A controller does not import Prisma or Drizzle directly.
+- DTOs are classes or Zod schemas validated before the handler runs. A global `ValidationPipe` uses `whitelist: true` and `forbidNonWhitelisted: true` when the project uses class-validator.
+- Do not read `process.env` inside a service. Inject `ConfigService` from a module that already validated the environment.
+- Authentication is a guard. Authorization that depends on the resource happens in the service, after the guard has attached the user. Do not parse the cookie by hand in each controller.
+- Use the project's `@CurrentUser()` decorator, or add one, instead of repeating `@Req() req` and casting `req.user`.
+- Throw `HttpException` subclasses (or the project's domain error mapped by an exception filter). Do not return `{ status: 500, message: error.message }` from a controller.
+- Interceptors are for cross-cutting response mapping and timing, not for business rules.
+- Tests build a `TestingModule`, mock the next boundary (repository or external HTTP), and assert the HTTP status plus the response body. Do not boot the whole application for a unit test.
+- Keep `main.ts` limited to global pipes, filters, versioning, and shutdown hooks. Feature wiring belongs in modules.

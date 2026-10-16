@@ -1,0 +1,13 @@
+---
+description: "How to change the agentkit-rules pack, installer, and examples."
+alwaysApply: true
+---
+
+# agentkit-rules
+
+- Installable rules live in `rules/<stack>/*.mdc` and `rules/<stack>/skills/<name>/SKILL.md`. Register every file in `rules/index.json`.
+- Cursor frontmatter uses only `description`, `globs`, and `alwaysApply`. `globs` is one comma-separated string. `alwaysApply: true` omits `globs`.
+- Skill frontmatter uses only `name` and `description`. `name` matches the directory, is lowercase, and does not contain `claude` or `anthropic`.
+- Do not hand-edit files under `examples/`. Run `npm run examples` after a rule change.
+- Run `npm run validate` and `npm test` before committing.
+- The installer is the source of AGENTS.md, CLAUDE.md, Copilot files, Windsurf rules, and Devin rules. Do not fork a second copy of a rule body.

@@ -1,0 +1,19 @@
+---
+trigger: glob
+globs: "drizzle.config.ts,drizzle/**/*.ts,**/*schema*.ts"
+description: "Drizzle schema, migrations, and query safety."
+---
+
+# Drizzle
+
+- Define tables in TypeScript with the `drizzle-orm` builders the repository already imports. Do not start a second schema style in the same project.
+- Generate migrations with `drizzle-kit generate` and commit the SQL. Apply them with `drizzle-kit migrate`.
+- `drizzle-kit push` is for a local prototype. Do not point it at a shared database.
+- Do not edit a migration that has already been applied. Add a new one.
+- Share one database client. Do not call `drizzle()` inside a request handler.
+- Use the query builder or the `sql` tagged template with bound parameters. Do not build SQL by concatenating untrusted input.
+- Casts and `sql.raw` are limited to identifiers that do not come from user input, and the line comments why.
+- Transactions wrap multi-step writes that must commit or roll back together.
+- Indexes cover columns used in filters, joins, and ordering. Add the index in the schema so the next migration creates it.
+- Do not import the database client into a Client Component.
+- A migration that drops a column or deletes rows is called out before it runs.

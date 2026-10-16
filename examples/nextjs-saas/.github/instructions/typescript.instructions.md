@@ -1,0 +1,21 @@
+---
+applyTo: "**/*.ts,**/*.tsx"
+---
+
+# TypeScript
+
+- `strict` stays on. Do not weaken `tsconfig` to make a file compile.
+- Do not use `any`. Use `unknown` and narrow it. A third-party type that is `any` gets wrapped at the boundary.
+- Do not silence the compiler with `@ts-ignore`. `@ts-expect-error` requires a reason on the same line and a comment that says which upgrade removes it.
+- Do not use a non-null assertion (`!`) unless the next line comments the invariant that makes it safe.
+- Prefer `type` for unions, props, and inferred shapes. Use `interface` when a consumer is expected to extend the object.
+- Use `import type` for type-only imports. Do not import a runtime value only to use it as a type.
+- Do not add TypeScript `enum`. Use a string union or an `as const` object plus a derived type.
+- Switches over a union end in a `never` check so a new variant fails compilation.
+- Named exports are the default. A default export is only for a file the framework requires (`page`, `layout`, `route`, `error`, `loading`, `not-found`).
+- Zod schemas (or the project's equivalent) are the runtime source of truth. Derive the static type with `z.infer`.
+- Do not leave a floating promise. `await` it, return it, or `void` it with a comment that says why the result is intentionally discarded.
+- Throw `Error` subclasses for exceptional failures. For expected failures, return a discriminated union such as `{ ok: true, data: T } | { ok: false, error: string }`. Do not throw strings.
+- Public functions whose inferred return type is a wide object or a `Promise` the caller must branch on get an explicit return type.
+- Use the path alias already in `tsconfig`. Do not add a second one.
+- Keep a module on one subject. Split a file that mixes I/O, domain rules, and rendering.

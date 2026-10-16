@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "stacks": [
+    {
+      "id": "core",
+      "title": "Core",
+      "description": "TypeScript, git, security, testing, accessibility, and performance.",
+      "rules": [
+        "git.mdc",
+        "security.mdc",
+        "typescript.mdc",
+        "testing.mdc",
+        "accessibility.mdc",
+        "performance.mdc"
+      ],
+      "skills": ["git-commit", "security-review", "add-tests", "accessibility-pass"]
+    },
+    {
+      "id": "nextjs",
+      "title": "Next.js",
+      "description": "App Router, Server Components, server actions, and caching.",
+      "rules": ["nextjs-app-router.mdc", "nextjs-data.mdc"],
+      "skills": ["nextjs-server-action", "nextjs-cache"]
+    },
+    {
+      "id": "react",
+      "title": "React",
+      "description": "React components, state, and composition.",
+      "rules": ["react-components.mdc"],
+      "skills": ["react-component"]
+    },
+    {
+      "id": "node",
+      "title": "Node.js",
+      "description": "Node.js configuration, process lifecycle, and service errors.",
+      "rules": ["node-runtime.mdc"],
+      "skills": ["node-service"]
+    },
+    {
+      "id": "nestjs",
+      "title": "NestJS",
+      "description": "NestJS modules, validation, and HTTP boundaries.",
+      "rules": ["nestjs.mdc"],
+      "skills": ["nestjs-feature"]
+    },
+    {
+      "id": "prisma",
+      "title": "Prisma",
+      "description": "Prisma schema, migrations, and client usage.",
+      "rules": ["prisma.mdc"],
+      "skills": ["prisma-change"]
+    },
+    {
+      "id": "drizzle",
+      "title": "Drizzle",
+      "description": "Drizzle schema, migrations, and query safety.",
+      "rules": ["drizzle.mdc"],
+      "skills": ["drizzle-change"]
+    },
+    {
+      "id": "tailwind",
+      "title": "Tailwind",
+      "description": "Tailwind CSS v4 tokens and class usage.",
+      "rules": ["tailwind.mdc"],
+      "skills": []
+    },
+    {
+      "id": "shadcn",
+      "title": "shadcn/ui",
+      "description": "shadcn/ui composition and the project component source.",
+      "rules": ["shadcn.mdc"],
+      "skills": ["shadcn-compose"]
+    }
+  ]
+}
