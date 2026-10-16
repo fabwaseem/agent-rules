@@ -4,20 +4,26 @@ Modular, production-grade instructions for AI coding agents. Pick the stacks you
 
 Stacks: **TypeScript**, **Next.js** (App Router, server actions, caching), **React**, **Node.js**, **NestJS**, **Prisma**, **Drizzle**, **Tailwind CSS**, **shadcn/ui**.
 
-The npm package name is `agentkit-rules`. `agent-rules-kit` and `agent-rules` were already taken.
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) ![Node >= 20.19](https://img.shields.io/badge/node-%3E%3D20.19-339933) ![Formats](https://img.shields.io/badge/formats-AGENTS.md%20%7C%20CLAUDE.md%20%7C%20Cursor%20%7C%20Copilot%20%7C%20Skills%20%7C%20Windsurf-8b5cf6)
 
-```bash
-npx agentkit-rules
-```
+One source of truth for your coding agents' rules, rendered into every format: `AGENTS.md`, `CLAUDE.md`, Cursor `.mdc`, GitHub Copilot instructions, Claude Code skills, and Windsurf / Devin rules.
 
-Until the package is on npm, run it from a clone:
+Write-up: [AGENTS.md, CLAUDE.md and Cursor rules for Next.js](https://www.fabwaseem.com/blog/agents-md-cursor-rules-nextjs).
+
+## Quick start
+
+Option 1, run the installer from a clone (Node 20.19+):
 
 ```bash
 git clone https://github.com/fabwaseem/agent-rules.git
-cd agent-rules
-npm install
-node --experimental-strip-types src/cli.ts --help
+cd agent-rules && npm install
+# install into your project
+node --experimental-strip-types src/cli.ts --target ../my-app
 ```
+
+Option 2, copy files by hand. Every rendered format is committed under [`examples/`](examples). Copy `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/`, `.github/`, `.claude/skills/` or `.devin/rules/` from the example closest to your stack.
+
+Option 3, `npx agentkit-rules`: **coming soon**. The package is not on npm yet. Until then, replace `npx agentkit-rules` in the commands below with `node --experimental-strip-types src/cli.ts` run from the clone.
 
 ## What gets written
 
@@ -53,10 +59,10 @@ Windsurf workspace rules are capped at 12,000 characters. Each file in this pack
 
 ## Install
 
-From a project directory:
+From the clone, point `--target` at your project (or run it from the project with the path to `src/cli.ts`):
 
 ```bash
-npx agentkit-rules
+node --experimental-strip-types /path/to/agent-rules/src/cli.ts --target .
 ```
 
 On a terminal, the CLI shows the stacks it detected and lets you accept or replace them. Detection reads `package.json` and `components.json`.
@@ -73,7 +79,7 @@ On a terminal, the CLI shows the stacks it detected and lets you accept or repla
 | `tailwindcss`, `@tailwindcss/postcss`, or `@tailwindcss/vite` | `tailwind` |
 | `shadcn`, `@shadcn/react`, `@base-ui/react`, `@radix-ui/*`, or `components.json` | `shadcn` |
 
-Non-interactive:
+Non-interactive (shown with the future `npx` name; use the clone command above for now):
 
 ```bash
 npx agentkit-rules --yes
