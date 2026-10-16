@@ -8,7 +8,7 @@ Stacks: **TypeScript**, **Next.js** (App Router, server actions, caching), **Rea
 
 One source of truth for your coding agents' rules, rendered into every format: `AGENTS.md`, `CLAUDE.md`, Cursor `.mdc`, GitHub Copilot instructions, Claude Code skills, and Windsurf / Devin rules.
 
-Write-up: [AGENTS.md, CLAUDE.md and Cursor rules for Next.js](https://www.fabwaseem.com/blog/agents-md-cursor-rules-nextjs).
+Write-up: [AGENTS.md vs CLAUDE.md vs Cursor rules: a Next.js guide](https://www.fabwaseem.com/blog/agents-md-vs-claude-md).
 
 ## Quick start
 
